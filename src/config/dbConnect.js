@@ -1,7 +1,10 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
+import getenv from 'getenv'
 
-mongoose.connect("mongodb+srv://henrique:123@alura.nbs5d7c.mongodb.net/alura-node");
+const STRING_DB = getenv('STRING_DB')
 
-let db = mongoose.connection;
+mongoose.connect(STRING_DB)
 
-export default db;
+let db = mongoose.connection
+
+export default db

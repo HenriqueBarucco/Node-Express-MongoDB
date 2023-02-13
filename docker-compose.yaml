@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+    app:
+        container_name: node-express
+        user: 'node'
+        restart: unless-stopped
+        env_file: .env
+        command: 'npm run dev'
+        ports:
+            - 3000:3000
+        environment:
+            - STRING_DB=${STRING_DB}
+        volumes:
+            - ./:/home/node/app
+        working_dir: /home/node/app
+        image: node:17.2.0-alpine
