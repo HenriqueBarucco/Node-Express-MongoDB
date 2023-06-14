@@ -6,17 +6,23 @@
     "type": "module",
     "scripts": {
         "dev": "nodemon -L --inspect=0.0.0.0 server.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "npx eslint ."
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "eslint": "^8.0.1",
+        "eslint-config-standard": "^17.1.0",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+        "eslint-plugin-promise": "^6.0.0",
         "nodemon": "^2.0.15"
     },
     "dependencies": {
+        "dotenv": "^16.1.4",
         "express": "^4.17.3",
-        "getenv": "^1.0.0",
         "mongoose": "^6.2.6"
     }
 }

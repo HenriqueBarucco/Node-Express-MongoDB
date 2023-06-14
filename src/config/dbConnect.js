@@ -1,9 +1,6 @@
-import mongoose from "mongoose";
-import getenv from "getenv";
+import mongoose from 'mongoose';
 
-const STRING_DB = getenv("STRING_DB");
-
-mongoose.connect(STRING_DB);
+mongoose.connect(process.env.STRING_DB);
 
 let db = mongoose.connection;
 

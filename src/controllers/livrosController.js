@@ -1,10 +1,10 @@
-import livros from "../models/Livro.js";
+import livros from '../models/Livro.js';
 
 class LivroController {
     static listarLivros = (req, res) => {
         livros
             .find()
-            .populate("autor")
+            .populate('autor')
             .exec((err, livros) => {
                 res.status(200).json(livros);
             });
@@ -15,7 +15,7 @@ class LivroController {
 
         livros
             .findById(id)
-            .populate("autor")
+            .populate('autor')
             .exec((err, livros) => {
                 if (err) {
                     res.status(400).send({
@@ -47,7 +47,7 @@ class LivroController {
         livros.findByIdAndUpdate(id, { $set: req.body }, (err) => {
             if (!err) {
                 res.status(200).send({
-                    message: "Livro atualizado com sucesso",
+                    message: 'Livro atualizado com sucesso',
                 });
             } else {
                 res.status(500).send({ message: err.message });
@@ -61,7 +61,7 @@ class LivroController {
         livros.findByIdAndDelete(id, (err) => {
             if (!err) {
                 res.status(200).send({
-                    message: "Livro removido com sucesso.",
+                    message: 'Livro removido com sucesso.',
                 });
             } else {
                 res.status(500).send({ message: err.message });

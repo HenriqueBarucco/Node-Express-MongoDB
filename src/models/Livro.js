@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const livroSchema = new mongoose.Schema({
     id: { type: String },
@@ -10,8 +10,8 @@ const livroSchema = new mongoose.Schema({
     },
     editora: { type: String, required: true },
     numeroPaginas: { type: Number },
-})
+});
 
-const livros = mongoose.model('livros', livroSchema)
+const livros = mongoose.model('livros', livroSchema);
 
-export default livros
+export default livros;

@@ -1,4 +1,4 @@
-import autores from "../models/Autor.js";
+import autores from '../models/Autor.js';
 
 class AutorController {
     static listarAutores = (req, res) => {
@@ -41,7 +41,7 @@ class AutorController {
         autores.findByIdAndUpdate(id, { $set: req.body }, (err) => {
             if (!err) {
                 res.status(200).send({
-                    message: "Autor atualizado com sucesso",
+                    message: 'Autor atualizado com sucesso',
                 });
             } else {
                 res.status(500).send({ message: err.message });
@@ -55,7 +55,7 @@ class AutorController {
         autores.findByIdAndDelete(id, (err) => {
             if (!err) {
                 res.status(200).send({
-                    message: "Autor removido com sucesso.",
+                    message: 'Autor removido com sucesso.',
                 });
             } else {
                 res.status(500).send({ message: err.message });
