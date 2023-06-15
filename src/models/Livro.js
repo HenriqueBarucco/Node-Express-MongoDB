@@ -10,9 +10,27 @@ const livroSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'autores',
         required: [true, 'O(a) autor(a) é obrigatório'],
+        enum: {
+            values: [
+                'Casa do Código',
+                'Alta Books',
+                'Novatec',
+                'Alura',
+                'Outro',
+            ],
+            message: 'A editora {VALUE} é inválida',
+        },
     },
     editora: { type: String, required: [true, 'A editora é obrigatório'] },
-    numeroPaginas: { type: Number },
+    numeroPaginas: {
+        type: Number,
+        validate: {
+            validator: (valor) => {
+                return valor >= 10 && valor <= 5000;
+            },
+            message: 'O número de páginas deve ser entre 10 e 5000',
+        },
+    },
 });
 
 const livros = mongoose.model('livros', livroSchema);
